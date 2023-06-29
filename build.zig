@@ -25,7 +25,7 @@ pub fn build(b: *std.build.Builder) void {
             .patch = 0,
         },
     });
-    lib.install();
+    b.installArtifact(lib);
 
     const validate_tests = b.addTest(.{
         .name = "validate tests",
