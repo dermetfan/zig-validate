@@ -14,6 +14,10 @@ pub fn build(b: *std.build.Builder) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
+    _ = b.addModule("validate", .{
+        .source_file = .{.path = "src/validate.zig"},
+    });
+
     const lib = b.addStaticLibrary(.{
         .name = "zig-validate",
         .root_source_file = .{.path = "src/validate.zig"},
